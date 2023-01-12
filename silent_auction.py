@@ -2,6 +2,8 @@ from os import system
 # import os
 # system('clear')
 from art import logo
+import sys
+
 
 def main():
 	print(logo)
@@ -17,14 +19,15 @@ def main():
 			system('clear')
 			bid(register)
 		else:
-			# print(f"The highest bidder is {highest(register)}")
-			print(register)
+			print(f"The highest bidder is {highest(register)}")
+			# print(register)
+
 			run = False
 
 	
 def bid(register):
 	name = input("Please enter your name: ")
-	bid = input("Please enter your bid for the amazing lamp: ")
+	bid = float(input("Please enter your bid for the amazing lamp: "))
 	entries(register, name, bid)
 
 def entries(register, name, bid):
@@ -38,10 +41,11 @@ def entries(register, name, bid):
 
 def highest(register):
 	value = 0
-	for name in register:
-		if register[name] > value:
-			value = register[name]
-	return()
+	
+	for entry in register:
+		if entry["Bid"] > value:
+			value = entry["Bid"]
+	return(value)
 
 
 main()
